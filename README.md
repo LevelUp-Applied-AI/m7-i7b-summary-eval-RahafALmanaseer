@@ -4,7 +4,16 @@ This is the starter repo for the Module 7 Week B Integration Task. **The integra
 
 The full integration guide is at <a href="https://levelup-applied-ai.github.io/aispire-14005-pages/modules/module-7/496c1c2b" target="_blank">the integration guide page</a> — read it first.
 
-## Quick start
+---
+
+## Summarization Configuration (Reproducibility)
+
+This integration uses the pre-trained Hugging Face model `sshleifer/distilbart-cnn-6-6`, a distilled BART encoder–decoder model trained on the CNN/DailyMail dataset for abstractive news summarization. The model is used in inference-only mode (no fine-tuning) to generate summaries using deterministic beam search.
+
+The evaluation corpus consists of 120 curated technology and entertainment news articles from the M6 dataset, with corresponding human-written reference summaries provided in `data/tech_news_summaries_reference.csv`. To reproduce the full evaluation and regenerate all metrics and prediction artifacts, run:
+
+
+ ## Quick start
 
 ```bash
 pip install -r requirements.txt
