@@ -1,0 +1,21 @@
+qid,question,strategy_a_pred,strategy_b_pred,gold_answer,strategy_a_em,strategy_a_f1,strategy_b_em,strategy_b_f1
+q1,In what year did Roman Polanski plead guilty to unlawful sexual intercourse?,1977,1977,1977,1.0,1.0,1.0,1.0
+q2,Who rejection the request of Polanski's lawyers to throw out the charges?,Los Angeles judge,police,Peter Espinoza,0.0,0.0,0.0,0.0
+q3,How old was Roman Polanski at the time of the incident?,76,76,43,0.0,0.0,0.0,0.0
+q4,Where was Roman Polanski en route to when he was arrested?,Zurich Film Festival,Switzerland,Zurich Film Festival,1.0,1.0,0.0,0.0
+q5,Who was actor Jack Nicholson's girlfriend at the time?,Anjelica Huston,Roman Polanski,Anjelica Huston,1.0,1.0,0.0,0.0
+q6,Who was the pedestrian accidentally struck and killed by John Singleton?,Constance Russell,Constance Russell,Constance Russell,1.0,1.0,1.0,1.0
+q7,What award did John Singleton win as best new filmmaker for his debut film?,MTV Movie Award,Academy Award,MTV Movie Award,1.0,1.0,0.0,0.4
+q8,How old was John Singleton when he earned two Academy Award nominations?,39,39,39,1.0,1.0,1.0,1.0
+q9,Which office received the case for review because the victim was killed?,district attorney's office,a hospital,district attorney's office,1.0,1.0,0.0,0.0
+q10,Which movie did John Singleton direct after Boyz N the Hood?,Rosewood,Boyz N the Hood,Rosewood,1.0,1.0,0.0,0.0
+q11,Who was the Swiss filmmaker that was among the first to defend Polanski?,Otto Weisser,Roman,Otto Weisser,1.0,1.0,0.0,0.0
+q12,Which psychological thriller did Polanski use to first storm Hollywood in 1968?,Rosemary ' s Baby,Swiss filmmaker Roman Polanski was arrested Saturday in Switzerland,Rosemary's Baby,0.0,0.4,0.0,0.0
+q13,Who served as the Zurich Film Festival Jury President on Monday?,Debra Winger,Roman Polanski,Debra Winger,1.0,1.0,0.0,0.0
+q14,In which 1994 movie did Sigourney Weaver work under Polanski's direction?,The Pianist,Saturday,Death and the Maiden,0.0,0.0,0.0,0.0
+q15,Who wrote about the Polanski case for The Hollywood Reporter's legal blog?,Matthew Belloni,Otto Weisser,Matthew Belloni,1.0,1.0,0.0,0.0
+q16,Who was named the richest person on the planet by Forbes?,Warren Buffett,Bill Gates,Warren Buffett,1.0,1.0,0.0,0.0
+q17,What is the estimated net worth of Mexican telecom tycoon Carlos Slim Helu?,$ 60 billion,$62 billion,60 billion,1.0,1.0,0.0,0.5
+q18,Which country is now home to four of the 10 richest people in the world?,India,Russia,India,1.0,1.0,0.0,0.0
+q19,Who was called quite possibly the world's youngest self-made billionaire ever?,Mark Zuckerberg,Bill Gates,Mark Zuckerberg,1.0,1.0,0.0,0.0
+q20,How many billionaires under the age of 40 did Forbes list this year?,50,"1,000",50,1.0,1.0,0.0,0.0

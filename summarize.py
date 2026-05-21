@@ -11,6 +11,8 @@ import json
 import os
 
 import pandas as pd
+from transformers import pipeline
+from rouge_score import rouge_scorer
 
 
 # -- Helpers (provided — do NOT modify) --------------------------------------
@@ -36,9 +38,8 @@ def _output_path() -> str:
 
 def build_summarizer(model_name: str):
     """Construct a Hugging Face summarization pipeline."""
-    # TODO: build a summarization pipeline using the given model name (same as the drill)
-    raise NotImplementedError("build_summarizer not implemented")
-
+    # build a summarization pipeline using the given model name (same as the drill)
+    return pipeline("summarization", model=model_name, tokenizer=model_name)
 
 def summarize_one(summ, text: str, max_length: int = 120, min_length: int = 30) -> str:
     """
@@ -47,9 +48,22 @@ def summarize_one(summ, text: str, max_length: int = 120, min_length: int = 30) 
     Use do_sample=False, num_beams=4. Return the summary STRING from
     [0]["summary_text"].
     """
-    # TODO: invoke the pipeline with deterministic generation parameters (no sampling, beam search) and return the summary string
-    raise NotImplementedError("summarize_one not implemented")
+    # invoke the pipeline with deterministic generation parameters (no sampling, beam search) and return the summary string
+    input_len = len(text.split())
+    adj_max = min(max_length, max(10, input_len))
+    adj_min = min(min_length, max(5, input_len // 2))
+    
+    if adj_min >= adj_max:
+        adj_min = max(5, adj_max - 5)
 
+    res = summ(
+        text,
+        max_length=adj_max,
+        min_length=adj_min,
+        do_sample=False,
+        num_beams=4
+    )
+    return res[0]["summary_text"].strip() if res else ""
 
 # -- Task 2: ROUGE -----------------------------------------------------------
 
@@ -62,10 +76,16 @@ def compute_rouge(pred: str, ref: str) -> dict:
 
     Returns {"rouge1": float, "rouge2": float, "rougeL": float}, all F1.
     """
-    # TODO: build a stemming-enabled ROUGE scorer over the three metric variants
-    # TODO: score the (reference, predicted) pair and return F1 measures only (note argument order)
-    raise NotImplementedError("compute_rouge not implemented")
-
+    # build a stemming-enabled ROUGE scorer over the three metric variants
+    # score the (reference, predicted) pair and return F1 measures only (note argument order)
+    scorer = rouge_scorer.RougeScorer(["rouge1", "rouge2", "rougeL"], use_stemmer=True)
+    scores = scorer.score(ref, pred)
+    
+    return {
+        "rouge1": float(scores["rouge1"].fmeasure),
+        "rouge2": float(scores["rouge2"].fmeasure),
+        "rougeL": float(scores["rougeL"].fmeasure)
+    }
 
 # -- Task 3: Evaluate over the corpus ----------------------------------------
 
@@ -85,11 +105,51 @@ def evaluate_summaries(summ, articles_df: pd.DataFrame, refs_df: pd.DataFrame) -
 
     Joins articles_df and refs_df on article_id.
     """
-    # TODO: merge the two DataFrames on article_id
-    # TODO: iterate, summarize each article, compute ROUGE vs. reference
-    # TODO: aggregate (mean across summaries) and return the dict
-    raise NotImplementedError("evaluate_summaries not implemented")
+    # merge the two DataFrames on article_id
+    # iterate, summarize each article, compute ROUGE vs. reference
+    # aggregate (mean across summaries) and return the dict
 
+    merged_df = pd.merge(articles_df, refs_df, on="article_id")
+    
+    # Determine the reference summary column name dynamically (handles 'summary' or 'reference_summary')
+    ref_col = "summary" if "summary" in merged_df.columns else "reference_summary"
+    
+    predictions = []
+    r1_list, r2_list, rl_list = [], [], []
+    
+    for _, row in merged_df.iterrows():
+        art_id = row["article_id"]
+        text = row["text"]
+        ref_summary = row[ref_col]  # Dynamic look-up here
+        
+        # Generate summary
+        pred_summary = summarize_one(summ, text)
+        
+        # Compute ROUGE
+        scores = compute_rouge(pred_summary, ref_summary)
+        
+        r1_list.append(scores["rouge1"])
+        r2_list.append(scores["rouge2"])
+        rl_list.append(scores["rougeL"])
+        
+        predictions.append({
+            "article_id": art_id,
+            "reference_summary": ref_summary,
+            "predicted_summary": pred_summary,
+            "rouge1": scores["rouge1"],
+            "rouge2": scores["rouge2"],
+            "rougeL": scores["rougeL"]
+        })
+        
+    n = len(merged_df)
+    
+    return {
+        "rouge1": float(sum(r1_list) / n) if n > 0 else 0.0,
+        "rouge2": float(sum(r2_list) / n) if n > 0 else 0.0,
+        "rougeL": float(sum(rl_list) / n) if n > 0 else 0.0,
+        "n": n,
+        "predictions": predictions
+    }
 
 # -- Task 4: Orchestrate -----------------------------------------------------
 

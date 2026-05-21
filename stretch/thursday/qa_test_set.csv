@@ -1,4 +1,21 @@
 qid,article_id,question,gold_answer,gold_evidence_in_article
-EX_01,REPLACE_WITH_ARTICLE_ID_FROM_tech_news_articles_csv,REPLACE_WITH_YOUR_QUESTION,REPLACE_WITH_GOLD_AS_LITERAL_SUBSTRING_OF_ARTICLE,REPLACE_WITH_~1_SENTENCE_FROM_ARTICLE_CONTAINING_THE_ANSWER
-EX_02,REPLACE_WITH_ARTICLE_ID,REPLACE_WITH_YOUR_QUESTION,REPLACE_WITH_GOLD,REPLACE_WITH_EVIDENCE_SENTENCE
-EX_03,REPLACE_WITH_ARTICLE_ID,REPLACE_WITH_YOUR_QUESTION,REPLACE_WITH_GOLD,REPLACE_WITH_EVIDENCE_SENTENCE
+q1,NEWS_0001,In what year did Roman Polanski plead guilty to unlawful sexual intercourse?,1977,"The director pleaded guilty in 1977 to a single count of having unlawful sexual intercourse with a minor, acknowledging he had sex with a 13-year-old girl."
+q2,NEWS_0001,Who rejection the request of Polanski's lawyers to throw out the charges?,Peter Espinoza,"In doing so, Los Angeles Superior Court Judge Peter Espinoza left the door open to reconsider his ruling"
+q3,NEWS_0001,How old was Roman Polanski at the time of the incident?,43,"He was 43 at the time."
+q4,NEWS_0001,Where was Roman Polanski en route to when he was arrested?,Zurich Film Festival,"He was en route to the Zurich Film Festival, which is holding a polanski tribute this year, when he was arrested by Swiss authorities, the festival said."
+q5,NEWS_0001,Who was actor Jack Nicholson's girlfriend at the time?,Anjelica Huston,"Nicholson was not at home, but his girlfriend at the time, actress Anjelica Huston, was."
+q6,NEWS_0002,Who was the pedestrian accidentally struck and killed by John Singleton?,Constance Russell,"Constance Russell, 57, of Los Angeles, died at a hospital a few hours after the accident Thursday evening, Los Angeles Police Officer Jason Lee said."
+q7,NEWS_0002,What award did John Singleton win as best new filmmaker for his debut film?,MTV Movie Award,"That film also won him an MTV Movie Award as best new filmmaker."
+q8,NEWS_0002,How old was John Singleton when he earned two Academy Award nominations?,39,"Singleton, 39, earned two Academy Award nominations for his 1991 debut film ""Boyz N the Hood."""
+q9,NEWS_0002,Which office received the case for review because the victim was killed?,district attorney's office,"However, Lee said because the victim was killed, the case has been turned over to the district attorney's office for review."
+q10,NEWS_0002,Which movie did John Singleton direct after Boyz N the Hood?,Rosewood,"John Singleton directed ""Rosewood,"" ""Baby Boy,"" ""Shaft""  and ""Four Brothers"" after ""Boyz N the Hood."""
+q11,NEWS_0003,Who was the Swiss filmmaker that was among the first to defend Polanski?,Otto Weisser,"Polanski's friend, Swiss filmmaker Otto Weisser, was among the first to publicly run to his defense."
+q12,NEWS_0003,Which psychological thriller did Polanski use to first storm Hollywood in 1968?,Rosemary's Baby,"Roman Polanski first stormed Hollywood with his psychological thriller, ""Rosemary's Baby,"" in 1968."
+q13,NEWS_0003,Who served as the Zurich Film Festival Jury President on Monday?,Debra Winger,"""We stand by and await his release and his next masterwork,"" said Zurich Film Festival Jury President Debra Winger on Monday on behalf of Polanski."
+q14,NEWS_0003,In which 1994 movie did Sigourney Weaver work under Polanski's direction?,Death and the Maiden,"""He is sweet and very strong and is very, very demanding, in the tradition of an auteur,"" said Sigourney Weaver about being directed by Polanski in 1994's ""Death and the Maiden."""
+q15,NEWS_0003,Who wrote about the Polanski case for The Hollywood Reporter's legal blog?,Matthew Belloni,"Matthew Belloni, who has has been following the Polanski case for The Hollywood Reporter's  legal blog, said the outpouring of support from the film industry is not surprising."
+q16,NEWS_0004,Who was named the richest person on the planet by Forbes?,Warren Buffett,"Forbes' list of the world's wealthy has named Warren Buffett the richest person on the planet"
+q17,NEWS_0004,What is the estimated net worth of Mexican telecom tycoon Carlos Slim Helu?,60 billion,"Mexican telecom tycoon Carlos Slim Helu was named the world's second richest man, with a net worth of around $60 billion, up $11 billion since last March."
+q18,NEWS_0004,Which country is now home to four of the 10 richest people in the world?,India,"India is now home to four of the 10 richest people in the world, the highest number for a single country."
+q19,NEWS_0004,Who was called quite possibly the world's youngest self-made billionaire ever?,Mark Zuckerberg,"Facebook founder Mark Zuckerberg, age 23, was called ""quite possibly the world's youngest self-made billionaire ever."""
+q20,NEWS_0004,How many billionaires under the age of 40 did Forbes list this year?,50,"It is also a record-breaking year for young billionaires, with Forbes listing 50 billionaires under the age of 40."
