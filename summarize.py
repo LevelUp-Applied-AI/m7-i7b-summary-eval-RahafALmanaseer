@@ -108,7 +108,11 @@ def evaluate_summaries(summ, articles_df: pd.DataFrame, refs_df: pd.DataFrame) -
     # merge the two DataFrames on article_id
     # iterate, summarize each article, compute ROUGE vs. reference
     # aggregate (mean across summaries) and return the dict
+
     merged_df = pd.merge(articles_df, refs_df, on="article_id")
+    
+    # Determine the reference summary column name dynamically (handles 'summary' or 'reference_summary')
+    ref_col = "summary" if "summary" in merged_df.columns else "reference_summary"
     
     predictions = []
     r1_list, r2_list, rl_list = [], [], []
@@ -116,7 +120,7 @@ def evaluate_summaries(summ, articles_df: pd.DataFrame, refs_df: pd.DataFrame) -
     for _, row in merged_df.iterrows():
         art_id = row["article_id"]
         text = row["text"]
-        ref_summary = row["summary"]
+        ref_summary = row[ref_col]  # Dynamic look-up here
         
         # Generate summary
         pred_summary = summarize_one(summ, text)
